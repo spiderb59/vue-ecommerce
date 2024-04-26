@@ -12,6 +12,10 @@ createApp(App)
     routes:
     [
         {
+            path: '/',
+            component: ProductPage, 
+        },
+        {
             path: '/cart',
             component: ShoppingCartPage, 
         }, 

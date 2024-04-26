@@ -5,6 +5,8 @@ import * as VueRouter from 'vue-router'
 import ShoppingCartPage from './pages/ShoppingCartPage.vue';
 import ProductPage from './pages/ProductPage.vue';
 import ProductDetailPage from './pages/ProductDetailPage.vue';
+import NotFound from './pages/NotFound.vue';
+
 
 
 createApp(App)
@@ -27,6 +29,10 @@ createApp(App)
         {
             path: '/products/:productId',
             component: ProductDetailPage, 
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            component: NotFound, 
         }
     ]
 

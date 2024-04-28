@@ -1,30 +1,25 @@
 <template>
-    <h1>My Cart</h1>
-    <div v-if="cartItems.length>0">
-      <div 
-        v-for="product in cartItems"
-        class="product-container"
-        :key= "product.id"
-      >
-      <img class="product-image" :src="product.imageName" />
-      <div class="details-wrap">
-        <h3>{{ product.name}}</h3>
-        <p>{{ product.price }}</p>
-      </div>
-      <button class="remove-button">Remove from cart</button>
-    </div>
+  <h1>Shopping Cart</h1>
+  <div v-if="cartItems.length > 0">
+    <ShoppingCartList :products="cartItems" />
+    <button class="checkout-button">Proceed to Checkout</button>
   </div>
   <div v-if="cartItems.length === 0">
-    No items in
+    You current have no items in your cart!
   </div>
-   
 </template>
+
 <script>
+import ShoppingCartList from '@/components/ShoppingCartList.vue';
 import { cartItems } from '../temp-data';
+
 export default {
-  name: 'ShoppingCartPage',
-  data(){
-    return{
+  name: "ShoppingCartPage",
+  components: {
+    ShoppingCartList,
+  },
+  data() {
+    return {
       cartItems,
     }
   }
